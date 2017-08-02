@@ -1,7 +1,9 @@
 #!/bin/sh
 
-set -o nonuset
 set -o errexit
+
+test -z "$SPARK_MASTER" && ( echo "SPARK_MASTER is not set; exiting" ; exit 1 )
+test -z "$MAIN_CLASS" && ( echo "MAIN_CLASS is not set; exiting" ; exit 1 )
 
 echo "Cloning the repository"
 git clone https://github.com/tashoyan/sc.git
