@@ -2,7 +2,7 @@ FROM openjdk:8-alpine
 
 LABEL maintainer="Arseniy Tashoyan <tashoyan@gmail.com>"
 
-RUN apk --update add git curl tar bash && \
+RUN apk --update add git curl tar bash ncurses && \
     rm -rf /var/lib/apt/lists/* && \
     rm /var/cache/apk/*
 
