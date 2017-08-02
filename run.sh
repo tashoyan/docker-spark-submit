@@ -12,8 +12,6 @@ git clone https://github.com/tashoyan/sc.git
 # Assembly, fallback to package
 echo "Building the jar"
 cd sc/05-functional-programming-in-scala-capstone/observatory/
-pwd
-ls -la
 sbt clean assembly
 
 echo "Running the application"
