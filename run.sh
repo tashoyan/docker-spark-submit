@@ -2,14 +2,17 @@
 
 set -o errexit
 
+test -z "$SCM_URL" && ( echo "SCM_URL is not set; exiting" ; exit 1 )
 test -z "$SPARK_MASTER" && ( echo "SPARK_MASTER is not set; exiting" ; exit 1 )
 test -z "$MAIN_CLASS" && ( echo "MAIN_CLASS is not set; exiting" ; exit 1 )
 
 echo "Cloning the repository"
-git clone https://github.com/tashoyan/sc.git
+git clone "SCM_URL"
+project_git="${SCM_URL##*/}"
+project_dir="${project_git%.git}"
 if test -n "$SCM_BRANCH"
 then
-  cd sc
+  cd "$project_dir"
   git checkout "$SCM_BRANCH"
   cd -
 fi
@@ -17,7 +20,12 @@ fi
 # Hardcoded URL and local path
 # Assembly, fallback to package
 echo "Building the jar"
-cd sc/05-functional-programming-in-scala-capstone/observatory/
+if test -z "$PROJECT_SUBDIR"
+then
+  cd "$project_dir"
+else
+  cd "$project_dir/$PROJECT_SUBDIR"
+fi
 if test -z "SKIP_TESTS"
 then
   sbt clean assembly
