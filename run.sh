@@ -7,6 +7,12 @@ test -z "$MAIN_CLASS" && ( echo "MAIN_CLASS is not set; exiting" ; exit 1 )
 
 echo "Cloning the repository"
 git clone https://github.com/tashoyan/sc.git
+if test -n "$SCM_BRANCH"
+then
+  cd sc
+  git checkout "$SCM_BRANCH"
+  cd -
+fi
 
 # Hardcoded URL and local path
 # Assembly, fallback to package
