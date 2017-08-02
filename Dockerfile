@@ -6,12 +6,12 @@ RUN apk --update add git curl tar bash && \
     rm -rf /var/lib/apt/lists/* && \
     rm /var/cache/apk/*
 
-ENV SBT_VERSION 0.13.9
-ENV SBT_HOME /usr/local/sbt
+ARG SBT_VERSION=0.13.9
+ARG SBT_HOME=/usr/local/sbt
 RUN curl -sL "http://dl.bintray.com/sbt/native-packages/sbt/$SBT_VERSION/sbt-$SBT_VERSION.tgz" | tar -xz -C /usr/local
 
-ENV SPARK_VERSION 2.2.0
-ENV SPARK_HOME /usr/local/spark-${SPARK_VERSION}
+ARG SPARK_VERSION=2.2.0
+ARG SPARK_HOME=/usr/local/spark-${SPARK_VERSION}
 RUN curl -sL "http://www-us.apache.org/dist/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop2.7.tgz" | tar -xz -C /usr/local
 
 ENV PATH ${PATH}:${SBT_HOME}/bin:${SPARK_HOME}/bin
