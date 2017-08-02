@@ -12,7 +12,12 @@ git clone https://github.com/tashoyan/sc.git
 # Assembly, fallback to package
 echo "Building the jar"
 cd sc/05-functional-programming-in-scala-capstone/observatory/
-sbt clean assembly
+if test -z "SKIP_TESTS"
+then
+  sbt clean assembly
+else
+  sbt "set test in assembly := {}" clean assembly
+fi
 
 echo "Running the application"
 jarfile="$(find target/ -type f -name *-assembly*.jar)"
