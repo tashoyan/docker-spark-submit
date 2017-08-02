@@ -14,6 +14,7 @@ ARG SPARK_VERSION=2.2.0
 ARG SPARK_HOME=/usr/local/spark-$SPARK_VERSION-bin-hadoop2.7
 RUN curl -sL "http://www-us.apache.org/dist/spark/spark-$SPARK_VERSION/spark-$SPARK_VERSION-bin-hadoop2.7.tgz" | tar -xz -C /usr/local
 
+#TODO Expose driver ports
 ENV PATH $PATH:$SBT_HOME/bin:$SPARK_HOME/bin
 ENV SPARK_MASTER local[*]
 COPY run.sh /
