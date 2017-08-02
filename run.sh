@@ -7,7 +7,7 @@ test -z "$SPARK_MASTER" && ( echo "SPARK_MASTER is not set; exiting" ; exit 1 )
 test -z "$MAIN_CLASS" && ( echo "MAIN_CLASS is not set; exiting" ; exit 1 )
 
 echo "Cloning the repository"
-git clone "SCM_URL"
+git clone "$SCM_URL"
 project_git="${SCM_URL##*/}"
 project_dir="${project_git%.git}"
 if test -n "$SCM_BRANCH"
