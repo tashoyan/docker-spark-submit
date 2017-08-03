@@ -33,7 +33,9 @@ else
   sbt "set test in assembly := {}" clean assembly
 fi
 
-echo "Running the application: $MAIN_CLASS at Spark master: $SPARK_MASTER"
 jarfile="$(find target/ -type f -name *-assembly*.jar)"
+echo "Submitting jar: $jarfile"
+echo "Main class: $MAIN_CLASS"
+echo "Spark master: $SPARK_MASTER"
 spark-submit --master "$SPARK_MASTER" --class "$MAIN_CLASS" $jarfile
 
