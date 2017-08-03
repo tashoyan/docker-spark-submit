@@ -5,6 +5,7 @@ set -o errexit
 test -z "$SCM_URL" && ( echo "SCM_URL is not set; exiting" ; exit 1 )
 test -z "$SPARK_MASTER" && ( echo "SPARK_MASTER is not set; exiting" ; exit 1 )
 test -z "$MAIN_CLASS" && ( echo "MAIN_CLASS is not set; exiting" ; exit 1 )
+test -z "$SPARK_DRIVER_PORT" && ( echo "SPARK_DRIVER_PORT is not set; exiting" ; exit 1 )
 
 echo "Cloning the repository: $SCM_URL"
 git clone "$SCM_URL"
@@ -33,9 +34,11 @@ else
   sbt "set test in assembly := {}" clean assembly
 fi
 
+#TODO How to pass app args?
 jarfile="$(find target/ -type f -name *-assembly*.jar)"
 echo "Submitting jar: $jarfile"
 echo "Main class: $MAIN_CLASS"
 echo "Spark master: $SPARK_MASTER"
-spark-submit --master "$SPARK_MASTER" --class "$MAIN_CLASS" $jarfile
+echo "Spark driver port: $SPARK_DRIVER_PORT"
+spark-submit --master "$SPARK_MASTER" --class "$MAIN_CLASS" --conf spark.driver.port="$SPARK_DRIVER_PORT" $jarfile
 
