@@ -30,7 +30,7 @@ else
   cd "$project_dir/$PROJECT_SUBDIR"
 fi
 echo "Building at: $(pwd)"
-if test -z "SKIP_TESTS"
+if test -z "$SKIP_TESTS"
 then
   sbt clean assembly
 else
@@ -47,11 +47,11 @@ echo "Spark master: $SPARK_MASTER"
 echo "Spark driver port: $SPARK_DRIVER_PORT"
 spark-submit \
   --master "$SPARK_MASTER" \
-  --class "$MAIN_CLASS" \
   --conf spark.driver.bindAddress="$ip_addr" \
   --conf spark.driver.host="$SPARK_DRIVER_HOST" \
   --conf spark.driver.port=$SPARK_DRIVER_PORT \
   --conf spark.ui.port=$SPARK_UI_PORT \
   --conf spark.blockManager.port=$SPARK_BLOCKMGR_PORT \
+  --class "$MAIN_CLASS" \
   $jarfile
 
