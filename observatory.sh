@@ -12,7 +12,7 @@ docker run \
   -p 5002:5002 \
   -p 5003:5003 \
   --name spark-submit \
-  -v /home/cloud-user/data:/root/data \
+  -v /data:/data \
   -e SPARK_MASTER="spark://16.17.90.70:7077" \
   -e MAIN_CLASS="image.Generator0S" \
   -e SPARK_DRIVER_HOST="16.17.90.70" \
