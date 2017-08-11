@@ -6,7 +6,7 @@ RUN apk --update add git curl tar bash ncurses && \
     rm -rf /var/lib/apt/lists/* && \
     rm /var/cache/apk/*
 
-ARG SBT_VERSION=0.13.13
+ARG SBT_VERSION=0.13.16
 ARG SBT_HOME=/usr/local/sbt-launcher-packaging-$SBT_VERSION
 RUN curl -sL "http://dl.bintray.com/sbt/native-packages/sbt/$SBT_VERSION/sbt-$SBT_VERSION.tgz" | tar -xz -C /usr/local
 
