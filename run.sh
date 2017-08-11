@@ -44,10 +44,10 @@ jarfile="$(find target/ -type f -name *-assembly*.jar)"
 echo "Submitting jar: $jarfile"
 echo "Main class: $MAIN_CLASS"
 echo "Spark master: $SPARK_MASTER"
-echo "Spark driver port: $SPARK_DRIVER_HOST"
+echo "Spark driver host: $SPARK_DRIVER_HOST"
 echo "Spark driver port: $SPARK_DRIVER_PORT"
-echo "Spark driver port: $SPARK_UI_PORT"
-echo "Spark driver port: $SPARK_BLOCKMGR_PORT"
+echo "Spark UI port: $SPARK_UI_PORT"
+echo "Spark block manager port: $SPARK_BLOCKMGR_PORT"
 spark-submit \
   --master "$SPARK_MASTER" \
   --conf spark.driver.bindAddress="$ip_addr" \
