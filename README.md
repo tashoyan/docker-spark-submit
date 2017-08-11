@@ -17,6 +17,7 @@ docker run -ti --rm --name spark-submit -e SCM_URL="https://github.com/mylogin/p
 TODO Table
 PROJECT_SUBDIR=
 TODO -v /home/cloud-user:/root
+TODO -P to expose ports
 
 Run the container on a machine behind proxy:
 ```
