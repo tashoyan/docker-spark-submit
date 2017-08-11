@@ -6,8 +6,8 @@ set -o errexit
 docker build --build-arg http_proxy=http://web-proxy.gre.hpecorp.net:8080 -t spark-submit .
 
 docker run \
-  -ti
-  --rm
+  -ti \
+  --rm \
   -p 5001:5001 \
   -p 5002:5002 \
   -p 5003:5003 \
