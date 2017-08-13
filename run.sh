@@ -21,6 +21,7 @@ then
   cd -
 fi
 
+#TODO Arbitrary sbt args. Probably remove the task autodetection - just leave default assembly.
 echo "Building the jar"
 if test -z "$PROJECT_SUBDIR"
 then
@@ -50,6 +51,7 @@ then
 fi
 
 #TODO How to pass app args?
+#TODO Spark settings
 jarfile="$(find target/ -type f -name *-assembly*.jar)"
 echo "Submitting jar: $jarfile"
 echo "Main class: $MAIN_CLASS"
