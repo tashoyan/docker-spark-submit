@@ -30,7 +30,7 @@ else
 fi
 echo "Building at: $(pwd)"
 sbt_command="clean"
-if "$(sbt help assembly | grep -qi 'not a valid')"
+if sbt help assembly | grep -qi 'not a valid'
 then
   echo "Task 'assembly' is not available; falling back to task 'package'"
   sbt_command="$sbt_command package"
