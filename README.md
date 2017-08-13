@@ -14,6 +14,7 @@ Run example:
 ```
 docker run \
   -ti \
+  --rm \
   -p 5000-5010:5000-5010 \
   -e SCM_URL="https://github.com/mylogin/project.git" \
   -e SPARK_MASTER="spark://my.master.com:7077" \
@@ -55,6 +56,7 @@ If your Spark program requires some data for processing, you can add the data to
 ```
 docker run \
   -ti \
+  --rm \
   -v /data:/data \
   -p 5000-5010:5000-5010 \
   -e SCM_URL="https://github.com/mylogin/project.git" \
