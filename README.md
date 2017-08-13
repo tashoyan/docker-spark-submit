@@ -75,9 +75,16 @@ The following tags are available:
 
 Build the image:
 ```
-docker build -t tashoyan/docker-spark-submit:spark-2.2.0 .
+docker build \
+  -t tashoyan/docker-spark-submit:spark-2.2.0 \
+  -f Dockerfile.spark-2.2.0 \
+  .
 ```
 When building on a machine behind proxy, specify `http_proxy` environment variable:
 ```
-docker build --build-arg http_proxy=http://my.proxy.com:8080 -t tashoyan/docker-spark-submit:spark-2.2.0 .
+docker build \
+  --build-arg http_proxy=http://my.proxy.com:8080 \
+  -t tashoyan/docker-spark-submit:spark-2.2.0 \
+  -f Dockerfile.spark-2.2.0 \
+  .
 ```
