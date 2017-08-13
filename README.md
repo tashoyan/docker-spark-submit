@@ -35,7 +35,7 @@ should be able to resolve this address. This is necessary for communication betw
 
 ## Command line arguments
 
-Command line arguments are passed via environment variables for `docker` command:
+Command line arguments are passed via environment variables for `docker` command: `-e VAR="value"`. Here is the full list:
 
 | Name | Mandatory? | Meaning | Default value |
 | ---- |:----------:| ------- | ------------- |
