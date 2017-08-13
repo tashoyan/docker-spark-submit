@@ -21,7 +21,7 @@ then
   cd -
 fi
 
-#TODO Arbitrary sbt args. Probably remove the task autodetection - just leave default assembly.
+#TODO Arbitrary sbt args. Probably remove the task autodetection - just leave default assembly. Also remove SKIP_TESTS.
 echo "Building the jar"
 if test -z "$PROJECT_SUBDIR"
 then
