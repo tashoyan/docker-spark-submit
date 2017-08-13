@@ -52,7 +52,8 @@ fi
 
 #TODO How to pass app args?
 #TODO Spark settings
-jarfile="$(find target/ -type f -name *-assembly*.jar)"
+#TODO Check that jarfile is one. If not, then ask user to specify the jar file to run.
+jarfile="$(ls target/scala-*/*.jar)"
 echo "Submitting jar: $jarfile"
 echo "Main class: $MAIN_CLASS"
 echo "Spark master: $SPARK_MASTER"
