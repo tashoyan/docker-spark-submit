@@ -42,6 +42,7 @@ if test -n "$SKIP_TESTS"
 then
   sbt_command=$"\"set test in assembly := {}\" $sbt_command"
 fi
+sbt "$sbt_command"
 
 ip_addr="$(ifconfig | grep -Eo 'inet (addr:)?([0-9]+\.){3}[0-9]+' | grep -Eo '([0-9]+\.){3}[0-9]+' | grep -v '127.0.0.1')"
 if test -z "$ip_addr"
