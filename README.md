@@ -6,7 +6,7 @@ Performs the following tasks:
 . Get the source code from the SCM repository
 . Build the application
 . Submit the application to the Spark cluster
-At present, only Git is supported for SCM and only Sbt is supported for build.
+At present, only Git is supported for SCM and only Sbt is supported for build. Both `git` and `sbt` commands are expected in the PATH.
 When building, sbt first tries to invoke `assembly` task (to build a fat jar) and falls back to `package` task.
 Run example:
 TODO Do we need -ti?
