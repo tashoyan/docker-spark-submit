@@ -1,6 +1,6 @@
 # docker-spark-submit TODO Update the name if needed.
 
-##Docker image to run Spark applications.
+## Docker image to run Spark applications
 
 Performs the following tasks:
 1. Get the source code from the SCM repository
