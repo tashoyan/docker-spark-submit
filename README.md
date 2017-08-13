@@ -34,7 +34,7 @@ should be able to resolve this address. This is necessary for communication betw
 
 Command line arguments are passed via environment variables for `docker` command:
 | Name | Mandatory | Meaning | Default value |
-| SCM_URL | Yes | URL to get source code from. _Only Git is supported._ TODO Bold | N/A |
+| SCM_URL | Yes | URL to get source code from. | N/A |
 | SCM_BRANCH | No | SCM branch to checkout. | master |
 | PROJECT_SUBDIR | No | A relative directory to the root of SCM working copy. If specified, then build will be executed in this directory, rather than in the root directory. | N/A |
 | SKIP_TESTS | No | Skip tests during the build. | Empty, i. e. don't skip. |
