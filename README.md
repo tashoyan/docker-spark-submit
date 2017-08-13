@@ -36,12 +36,12 @@ Command line arguments are passed via environment variables for `docker` command
 | Name | Mandatory? | Meaning | Default value |
 | SCM_URL | Yes | URL to get source code from. | N/A |
 | SCM_BRANCH | No | SCM branch to checkout. | master |
-| PROJECT_SUBDIR | No | A relative directory to the root of SCM working copy. If specified, then build will be executed in this directory, rather than in the root directory. | N/A |
-| SKIP_TESTS | No | Skip tests during the build. | Empty, i. e. don't skip. |
+| PROJECT_SUBDIR | No | A relative directory to the root of the SCM working copy. If specified, then build will be executed in this directory, rather than in the root directory. | N/A |
+| SKIP_TESTS | No | Skip tests during the build. | Empty, don't skip. |
 | SPARK_MASTER | No | Spark master URL | local[*] |
 | SPARK_DRIVER_HOST | Yes | Value of the `spark.driver.host` configuration parameter. Must be set to the network address of the machine hosting the container. Must be accessible from Spark nodes. | N/A |
 | MAIN_CLASS | Yes | Main class of the application to run. | N/A |
-| http_proxy, https_proxy | No | Specify when running behind a proxy | Empty, i. e. no proxy |
+| http_proxy, https_proxy | No | Specify when running behind a proxy | Empty, no proxy |
 
 ## Working with data
 
