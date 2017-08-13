@@ -21,7 +21,6 @@ then
   cd -
 fi
 
-# TODO Assembly, fallback to package
 echo "Building the jar"
 if test -z "$PROJECT_SUBDIR"
 then
@@ -30,11 +29,17 @@ else
   cd "$project_dir/$PROJECT_SUBDIR"
 fi
 echo "Building at: $(pwd)"
-if test -z "$SKIP_TESTS"
+sbt_command="clean"
+if "$(sbt help assembly | grep -qi 'not a valid')"
 then
-  sbt clean assembly
+  echo "Task 'assembly' is not available; falling back to task 'package'"
+  sbt_command="$sbt_command package"
 else
-  sbt "set test in assembly := {}" clean assembly
+  sbt_command="$sbt_command assembly"
+fi
+if test -n "$SKIP_TESTS"
+then
+  sbt_command=$"\"set test in assembly := {}\" $sbt_command"
 fi
 
 ip_addr="$(ifconfig | grep -Eo 'inet (addr:)?([0-9]+\.){3}[0-9]+' | grep -Eo '([0-9]+\.){3}[0-9]+' | grep -v '127.0.0.1')"
