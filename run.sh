@@ -30,12 +30,12 @@ else
 fi
 echo "Building at: $(pwd)"
 sbt_command="clean"
-if sbt help assembly | grep -qi 'not a valid'
+if sbt "help assembly" | grep -qi 'deployable fat jar'
 then
+  sbt_command="$sbt_command assembly"
+else
   echo "Task 'assembly' is not available; falling back to task 'package'"
   sbt_command="$sbt_command package"
-else
-  sbt_command="$sbt_command assembly"
 fi
 if test -n "$SKIP_TESTS"
 then
