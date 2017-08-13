@@ -1,4 +1,4 @@
-# docker-spark-submit TODO Update the name if needed.
+# docker-spark-submit
 
 ## Docker image to run Spark applications
 
@@ -11,8 +11,6 @@ At present, only Git is supported for SCM and only Sbt is supported for build. B
 When building, sbt first tries to invoke `assembly` task (to build a fat jar) and falls back to `package` task.
 
 Run example:
-TODO Do we need -ti?
-TODO Can we rename the image to simply spark-submit?
 ```
 docker run \
   -ti \
