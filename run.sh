@@ -46,17 +46,28 @@ then
   exit 1
 fi
 
-#TODO How to pass app args?
-#TODO Spark settings
-#TODO Check that jarfile is one. If not, then ask user to specify the jar file to run.
-jarfile="$(ls target/scala-*/*.jar)"
+if test -z "$JAR_FILE"
+then
+  jarfile="$(ls target/scala-*/*.jar)"
+else
+  jarfile="$JAR_FILE"
+fi
+if ! test -f "$jarfile"
+then
+  echo "Jar file not found or not a single file: $jarfile"
+  echo "You can specify jar file explicitly: -e JAR_FILE=/path/to/file"
+  exit 1
+fi
+
 echo "Submitting jar: $jarfile"
-echo "Main class: $MAIN_CLASS"
+echo "Application main class: $MAIN_CLASS"
+echo "Application arguments: $APP_ARGS"
 echo "Spark master: $SPARK_MASTER"
 echo "Spark driver host: $SPARK_DRIVER_HOST"
 echo "Spark driver port: $SPARK_DRIVER_PORT"
 echo "Spark UI port: $SPARK_UI_PORT"
 echo "Spark block manager port: $SPARK_BLOCKMGR_PORT"
+echo "Spark configuration settings: $SPARK_CONF"
 spark-submit \
   --master "$SPARK_MASTER" \
   --conf spark.driver.bindAddress="$ip_addr" \
@@ -64,6 +75,8 @@ spark-submit \
   --conf spark.driver.port=$SPARK_DRIVER_PORT \
   --conf spark.ui.port=$SPARK_UI_PORT \
   --conf spark.blockManager.port=$SPARK_BLOCKMGR_PORT \
+  "$SPARK_CONF" \
   --class "$MAIN_CLASS" \
-  $jarfile
+  "$jarfile" \
+  "$APP_ARGS"
 
