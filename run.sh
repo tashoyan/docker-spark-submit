@@ -30,7 +30,6 @@ else
 fi
 echo "Building at: $(pwd)"
 
-#TODO Update the doc: no SKIP_TESTS, no task detection package/assembly.
 if test -z "$BUILD_COMMAND"
 then
   build_command="sbt 'set test in assembly := {}' clean assembly"
