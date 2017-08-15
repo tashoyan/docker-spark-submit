@@ -3,7 +3,7 @@
 set -o nounset
 set -o errexit
 
-ip_addr="$(ifconfig | grep -Eo 'inet (addr:)?([0-9]+\.){3}[0-9]+' | grep -Eo '([0-9]+\.){3}[0-9]+' | grep -v '127.0.0.1')"
+ip_addr="$(ifconfig | grep -Eo 'inet (addr:)?([0-9]+\.){3}[0-9]+' | grep -Eo '([0-9]+\.){3}[0-9]+' | grep -v '127.0.0.1' | grep -v '172.17.0.1')"
 if test -z "$ip_addr"
 then
   echo "Cannot determine the machine IP address."
@@ -17,7 +17,6 @@ docker run \
   --name spark-submit \
   -v /data:/data \
   -e SCM_URL="https://github.com/tashoyan/sc.git" \
-  -e SCM_BRANCH="spark" \
   -e PROJECT_SUBDIR="04-big-data-analysis-with-scala-and-spark/04-timeusage/timeusage" \
   -e BUILD_COMMAND="sbt clean package" \
   -e SPARK_MASTER="spark://localhost:7077" \
