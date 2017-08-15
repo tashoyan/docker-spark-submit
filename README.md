@@ -32,6 +32,7 @@ You have to publish this range of network ports. Spark driver program and Spark 
 
 You have to specify here the network address of the host machine where the container will be running. Spark cluster nodes
 should be able to resolve this address. This is necessary for communication between executors and the driver program.
+For detailed technical information see [SPARK-4563](https://issues.apache.org/jira/browse/SPARK-4563).
 
 ## Command line arguments
 
