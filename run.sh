@@ -75,8 +75,7 @@ spark-submit \
   --conf spark.driver.port=$SPARK_DRIVER_PORT \
   --conf spark.ui.port=$SPARK_UI_PORT \
   --conf spark.blockManager.port=$SPARK_BLOCKMGR_PORT \
-  "$SPARK_CONF" \
+  $SPARK_CONF \
   --class "$MAIN_CLASS" \
   "$jarfile" \
-  "$APP_ARGS"
-
+  $APP_ARGS
