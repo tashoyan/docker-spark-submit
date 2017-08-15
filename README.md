@@ -43,7 +43,7 @@ Command line arguments are passed via environment variables for `docker` command
 | SCM_BRANCH | No | SCM branch to checkout. | master |
 | PROJECT_SUBDIR | No | A relative directory to the root of the SCM working copy.<br>If specified, then the build will be executed in this directory, rather than in the root directory. | N/A |
 | BUILD_COMMAND | No | Command to build the application. | `sbt 'set test in assembly := {}' clean assembly`<br>Means: build fat-jar using sbt-assembly plugin skipping the tests. |
-| SPARK_MASTER | No | Spark master URL. | local[*] |
+| SPARK_MASTER | No | Spark master URL. | `local[*]` |
 | SPARK_CONF | No | Arbitrary Spark configuration settings, like:<br>`--conf spark.executor.memory=2g --conf spark.driver.cores=2` | Empty |
 | SPARK_DRIVER_HOST | Yes | Value of the `spark.driver.host` configuration parameter.<br>Must be set to the network address of the machine hosting the container. Must be accessible from Spark nodes. | N/A |
 | JAR_FILE | No | Path to the application jar file. Relative to the build directory.<br> If not specified, the jar file will be automatically found under `target/` subdirectory of the build directory. | N/A |
@@ -92,3 +92,7 @@ docker build \
   -f Dockerfile.spark-2.2.0 \
   .
 ```
+
+## License
+
+Apache 2.0 license.
