@@ -20,7 +20,7 @@ docker run \
   -e SCM_BRANCH="spark" \
   -e PROJECT_SUBDIR="04-big-data-analysis-with-scala-and-spark/04-timeusage/timeusage" \
   -e BUILD_COMMAND="sbt clean package" \
-  -e SPARK_MASTER="spark://localhost:7077" \
+  -e SPARK_MASTER="spark://$ip_addr:7077" \
   -e SPARK_CONF="--conf spark.executor.memory=2g --conf spark.driver.cores=2" \
   -e JAR_FILE="target/scala-2.11/bigdata-timeusage_2.11-0.1-SNAPSHOT.jar" \
   -e MAIN_CLASS="timeusage.TimeUsage" \

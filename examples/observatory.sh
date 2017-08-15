@@ -19,7 +19,7 @@ docker run \
   -e SCM_URL="https://github.com/tashoyan/sc.git" \
   -e SCM_BRANCH="spark" \
   -e PROJECT_SUBDIR="05-functional-programming-in-scala-capstone/observatory" \
-  -e SPARK_MASTER="spark://localhost:7077" \
+  -e SPARK_MASTER="spark://$ip_addr:7077" \
   -e MAIN_CLASS="image.Generator0S" \
   -e SPARK_DRIVER_HOST="$ip_addr" \
   -e https_proxy="http://web-proxy.gre.hpecorp.net:8080" \
