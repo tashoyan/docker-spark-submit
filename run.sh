@@ -21,7 +21,6 @@ then
   cd -
 fi
 
-#TODO Arbitrary sbt args. Probably remove the task autodetection - just leave default assembly. Also remove SKIP_TESTS.
 echo "Building the jar"
 if test -z "$PROJECT_SUBDIR"
 then
@@ -30,19 +29,11 @@ else
   cd "$project_dir/$PROJECT_SUBDIR"
 fi
 echo "Building at: $(pwd)"
-sbt_command="clean"
-if sbt "help assembly" | grep -qi 'deployable fat jar'
-then
-  sbt_command="$sbt_command assembly"
-else
-  echo "Task 'assembly' is not available; falling back to task 'package'"
-  sbt_command="$sbt_command package"
-fi
-if test -n "$SKIP_TESTS"
-then
-  sbt_command=$"\"set test in assembly := {}\" $sbt_command"
-fi
-sbt "$sbt_command"
+
+#TODO Update the doc: no SKIP_TESTS, no task detection package/assembly.
+build_command="${BUILD_COMMAND-sbt 'set test in assembly := {}' clean assembly}"
+echo "Building with command: $build_command"
+eval $build_command
 
 ip_addr="$(ifconfig | grep -Eo 'inet (addr:)?([0-9]+\.){3}[0-9]+' | grep -Eo '([0-9]+\.){3}[0-9]+' | grep -v '127.0.0.1')"
 if test -z "$ip_addr"
