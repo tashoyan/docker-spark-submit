@@ -3,9 +3,9 @@
 ## Docker image to run Spark applications
 
 Performs the following tasks:
-1. Get the source code from the SCM repository
-1. Build the application
-1. Submit the application to the Spark cluster
+1. Gets the source code from the SCM repository
+1. Builds the application
+1. Runs the application by submitting it to the Spark cluster
 
 At present, only Git is supported for SCM and only Sbt is supported for build. Both `git` and `sbt` commands are expected in the PATH.
 
