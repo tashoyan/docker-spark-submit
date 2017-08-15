@@ -17,6 +17,7 @@ docker run \
   --name spark-submit \
   -v /data:/data \
   -e SCM_URL="https://github.com/tashoyan/sc.git" \
+  -e SCM_BRANCH="spark" \
   -e PROJECT_SUBDIR="04-big-data-analysis-with-scala-and-spark/04-timeusage/timeusage" \
   -e BUILD_COMMAND="sbt clean package" \
   -e SPARK_MASTER="spark://localhost:7077" \
