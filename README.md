@@ -42,7 +42,7 @@ Command line arguments are passed via environment variables for `docker` command
 | SCM_URL | Yes | URL to get source code from. | N/A |
 | SCM_BRANCH | No | SCM branch to checkout. | master |
 | PROJECT_SUBDIR | No | A relative directory to the root of the SCM working copy.<br>If specified, then the build will be executed in this directory, rather than in the root directory. | N/A |
-| BUILD_COMMAND | No | Command to build the application. | `sbt 'set test in assembly := {}' clean assembly`<br>Build fat-jar using sbt-assembly plugin, skip tests |
+| BUILD_COMMAND | No | Command to build the application. | `sbt 'set test in assembly := {}' clean assembly`<br>Means: build fat-jar using sbt-assembly plugin skipping the tests. |
 | SPARK_MASTER | No | Spark master URL | local[*] |
 | SPARK_DRIVER_HOST | Yes | Value of the `spark.driver.host` configuration parameter.<br>Must be set to the network address of the machine hosting the container. Must be accessible from Spark nodes. | N/A |
 | MAIN_CLASS | Yes | Main class of the application to run. | N/A |
