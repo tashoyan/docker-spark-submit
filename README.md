@@ -7,7 +7,7 @@ Performs the following tasks:
 1. Builds the application
 1. Runs the application by submitting it to the Spark cluster
 
-At present, only Git is supported for SCM and only Sbt is supported for build. Both `git` and `sbt` commands are expected in the PATH.
+At present, only Git is supported for SCM and only Sbt is supported for build. Both `git` and `sbt` commands are present in the PATH within the image.
 
 Run example:
 ```
