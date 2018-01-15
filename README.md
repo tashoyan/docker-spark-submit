@@ -75,8 +75,8 @@ docker run \
 
 Image tags correspond to Spark versions. Choose the tag based on the version of your Spark cluster.
 The following tags are available:
-* spark-2.2.0
-* spark-2.1.1
+* spark-2.2.1
+* spark-2.1.2
 
 ## Building the image
 
