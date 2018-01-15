@@ -22,6 +22,8 @@ docker run \
   tashoyan/docker-spark-submit:spark-2.2.0
 ```
 
+Image at DockerHub: [docker-spark-submit](https://hub.docker.com/r/tashoyan/docker-spark-submit/).
+
 ## Important command line arguments
 
 `-p 5000-5010:5000-5010`
