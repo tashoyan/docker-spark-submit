@@ -27,4 +27,4 @@ docker run \
   -e APP_ARGS="aaa bbb" \
   -e SPARK_DRIVER_HOST="$ip_addr" \
   -e https_proxy="http://web-proxy.gre.hpecorp.net:8080" \
-  tashoyan/docker-spark-submit:spark-2.2.0
+  tashoyan/docker-spark-submit:spark-2.2.1

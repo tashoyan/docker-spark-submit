@@ -19,7 +19,7 @@ docker run \
   -e SPARK_MASTER="spark://my.master.com:7077" \
   -e SPARK_DRIVER_HOST="192.168.1.2" \
   -e MAIN_CLASS="Main" \
-  tashoyan/docker-spark-submit:spark-2.2.0
+  tashoyan/docker-spark-submit:spark-2.2.1
 ```
 
 Image at DockerHub: [docker-spark-submit](https://hub.docker.com/r/tashoyan/docker-spark-submit/).
@@ -68,7 +68,7 @@ docker run \
   -e SPARK_MASTER="spark://my.master.com:7077" \
   -e SPARK_DRIVER_HOST="192.168.1.2" \
   -e MAIN_CLASS="Main" \
-  tashoyan/docker-spark-submit:spark-2.2.0
+  tashoyan/docker-spark-submit:spark-2.2.1
 ```
 
 ## Available image tags
@@ -83,16 +83,16 @@ The following tags are available:
 Build the image:
 ```
 docker build \
-  -t tashoyan/docker-spark-submit:spark-2.2.0 \
-  -f Dockerfile.spark-2.2.0 \
+  -t tashoyan/docker-spark-submit:spark-2.2.1 \
+  -f Dockerfile.spark-2.2.1 \
   .
 ```
 When building on a machine behind proxy, specify `http_proxy` environment variable:
 ```
 docker build \
   --build-arg http_proxy=http://my.proxy.com:8080 \
-  -t tashoyan/docker-spark-submit:spark-2.2.0 \
-  -f Dockerfile.spark-2.2.0 \
+  -t tashoyan/docker-spark-submit:spark-2.2.1 \
+  -f Dockerfile.spark-2.2.1 \
   .
 ```
 
